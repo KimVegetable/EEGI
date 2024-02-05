@@ -2,9 +2,9 @@
 
 import re
 
-class CarpeFile(object):
+class File(object):
     def __init__(self):
-        super(CarpeFile, self).__init__()
+        super(File, self).__init__()
         self._p_id = ""
         self._inode = ""
         self._name = ""

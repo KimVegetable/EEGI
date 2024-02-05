@@ -3,7 +3,7 @@
 from modules import defa_connector
 from modules.DEFA import interface
 from modules.DEFA.MappingDocuments import MappingDocuments
-from modules.DEFA.PDF.carpe_pdf import PDF
+from modules.DEFA.PDF.pdf import PDF
 
 class PDFPlugin(interface.DEFAPlugin):
     NAME = "PDF"

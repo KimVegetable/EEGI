@@ -3,7 +3,7 @@ from elasticsearch import Elasticsearch
 
 from modules import defa_connector
 from modules.DEFA import interface
-from modules.DEFA.MS_Office.carpe_compound import Compound
+from modules.DEFA.MS_Office.compound import Compound
 from modules.DEFA.MappingDocuments import MappingDocuments
 
 class PPTPlugin(interface.DEFAPlugin):

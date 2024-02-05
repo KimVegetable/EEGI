@@ -1,4 +1,3 @@
-# carpe_doc.py
 import os
 import struct
 import sys
@@ -776,8 +775,8 @@ class DOC:
                         img_num += 1
 
                     # XLS
-                    from modules.DEFA.MS_Office.carpe_xls import XLS
-                    from modules.DEFA.MS_Office.carpe_compound import Compound
+                    from modules.DEFA.MS_Office.xls import XLS
+                    from modules.DEFA.MS_Office.compound import Compound
                     result = None
                     if workbook != None:
                         temp_xls = XLS(Compound(self.compound.filePath))
@@ -793,8 +792,8 @@ class DOC:
                         img_num += 1
 
                     # PPT
-                    from modules.DEFA.MS_Office.carpe_ppt import PPT
-                    from modules.DEFA.MS_Office.carpe_compound import Compound
+                    from modules.DEFA.MS_Office.ppt import PPT
+                    from modules.DEFA.MS_Office.compound import Compound
                     result = None
                     if powerpoint_document != None and current_user != None:
                         temp_ppt = PPT(Compound(self.compound.filePath))

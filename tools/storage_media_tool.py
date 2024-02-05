@@ -23,7 +23,7 @@ from dfvfs.helpers import source_scanner
 from dfvfs.resolver import resolver as dfvfs_resolver
 
 from tools import logger, tools
-from containers import carpe_file as CarpeFile
+from containers import file as File
 from utility import definitions
 from utility import errors
 from engine import path_extractors
@@ -97,7 +97,7 @@ class StorageMediaTool(tools.CLITool):
 
 
     def _ParseOutputPathOption(self, options):
-        self._output_file_path = self.ParseStringOption(options, 'output_file', ".\\CARPE-Result")
+        self._output_file_path = self.ParseStringOption(options, 'output_file', ".\\Result")
         if self._output_file_path:
             self._output_file_path = os.path.abspath(self._output_file_path)
 
@@ -262,7 +262,7 @@ class StorageMediaTool(tools.CLITool):
 
     def ScanSource(self, source_path):
 
-        # In Saas Carpe, Source is lnk
+
         if os.path.islink(source_path):
             source_path = os.readlink(source_path)
             # source_path = os.path.realpath(source_path)
@@ -636,11 +636,7 @@ class StorageMediaTool(tools.CLITool):
         return normalized_volume_identifiers
 
     def LoadReferenceDataSet(self):
-        try:
-            self._rds = csv.read_csv('/home/carpe/rds/NSRLFile.txt')
-            self._rds_set = set([x.upper() for x in self._rds.columns[0].to_pylist()])
-        except KeyboardInterrupt:
-            raise errors.UserAbort('File system scan aborted.')
+        pass
 
     def InsertImageInformation(self):
         if not self._source_path_specs:
@@ -889,7 +885,7 @@ class StorageMediaTool(tools.CLITool):
 
         files = []
         tsk_file = file_entry.GetTSKFile()
-        file = CarpeFile.CarpeFile()
+        file = File.File()
         file._name = file_entry.name
 
         if len(self._partition_list) > 1:
@@ -1048,7 +1044,7 @@ class StorageMediaTool(tools.CLITool):
                         rds_result = "Not Matching"
 
                 if data_stream.name:
-                    file_ads = CarpeFile.CarpeFile()
+                    file_ads = File.File()
                     file_ads.__dict__ = file.__dict__.copy()
                     file_ads._name = file._name + ":" + data_stream.name
                     file_ads._extension = ''
@@ -1073,7 +1069,7 @@ class StorageMediaTool(tools.CLITool):
                 slack_size = tsk_file.info.fs_info.block_size - (_temp_file._size % tsk_file.info.fs_info.block_size)
 
             if slack_size > 0:
-                file_slack = CarpeFile.CarpeFile()
+                file_slack = File.File()
                 file_slack._size = slack_size
                 file_slack._file_id = _temp_file._file_id
                 file_slack._p_id = _temp_file._p_id
@@ -1137,7 +1133,7 @@ class StorageMediaTool(tools.CLITool):
             return
 
         files = []
-        file = CarpeFile.CarpeFile()
+        file = File.File()
 
         file._name = file_entry.name
 
@@ -1294,7 +1290,7 @@ class StorageMediaTool(tools.CLITool):
                         rds_result = "Not Matching"
 
                 if data_stream.name:
-                    file_ads = CarpeFile.CarpeFile()
+                    file_ads = File.File()
                     file_ads.__dict__ = file.__dict__.copy()
                     file_ads._name = file._name + ":" + data_stream.name
                     file_ads._extension = ''
@@ -1320,7 +1316,7 @@ class StorageMediaTool(tools.CLITool):
                             _temp_file._size % file_entry._file_system._fsntfs_volume.cluster_block_size)
 
             if slack_size > 0:
-                file_slack = CarpeFile.CarpeFile()
+                file_slack = File.File()
                 file_slack._size = slack_size
                 file_slack._file_id = _temp_file._file_id
                 file_slack._p_id = _temp_file._p_id
@@ -1382,7 +1378,7 @@ class StorageMediaTool(tools.CLITool):
             return
 
         files = []
-        file = CarpeFile.CarpeFile()
+        file = File.File()
         file._name = file_entry.name
 
         if len(self._partition_list) > 1:
@@ -1534,7 +1530,7 @@ class StorageMediaTool(tools.CLITool):
                         rds_result = "Not Matching"
 
                 if data_stream.name:
-                    file_ads = CarpeFile.CarpeFile()
+                    file_ads = File.File()
                     file_ads.__dict__ = file.__dict__.copy()
                     file_ads._name = file._name + ":" + data_stream.name
                     file_ads._extension = ''

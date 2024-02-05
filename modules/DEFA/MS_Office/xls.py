@@ -1,4 +1,3 @@
-# carpe_xls.py
 import os
 import struct
 import sys

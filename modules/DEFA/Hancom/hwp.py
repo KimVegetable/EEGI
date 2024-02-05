@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# carpe_hwp.py
 import os
 import compoundfiles
 import struct

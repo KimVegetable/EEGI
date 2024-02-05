@@ -1,4 +1,3 @@
-# carpe_ppt.py
 import struct
 import zipfile
 import zlib

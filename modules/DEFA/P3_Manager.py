@@ -13,27 +13,26 @@ from datetime import datetime, timedelta
 from elasticsearch import Elasticsearch
 
 # pdf 주석
-#from DEFA.PDF.carpe_pdf import PDF
-from modules.DEFA.OOXML.Carpe_OOXML import OOXML
-from modules.DEFA.MS_Office.carpe_compound import Compound
-from modules.DEFA.Hancom.carpe_hwp import HWP
+from modules.DEFA.OOXML.OOXML import OOXML
+from modules.DEFA.MS_Office.compound import Compound
+from modules.DEFA.Hancom.hwp import HWP
 
 import pdb
 
 class DEFA:
     def documentFilter(self, data, file):
 
-        config = configparser.ConfigParser()
-        conf_file = os.path.dirname(
-            os.path.dirname(os.path.abspath(__file__))) + os.sep + 'config' + os.sep + 'carpe.conf'
-        if not os.path.exists(conf_file):
-            raise Exception('%s file does not exist.\n' % conf_file)
-        config.read(conf_file)
-        _host = config.get('elasticsearch', 'host')
-        _port = config.getint('elasticsearch', 'port')
-        _es_id = config.get('elasticsearch', 'id')
-        _es_passwd = config.get('elasticsearch', 'passwd')
-        es = Elasticsearch(hosts=_host, port=_port, http_auth=(_es_id, _es_passwd))
+        # config = configparser.ConfigParser()
+        # conf_file = os.path.dirname(
+        #     os.path.dirname(os.path.abspath(__file__))) + os.sep + 'config' + os.sep + 'carpe.conf'
+        # if not os.path.exists(conf_file):
+        #     raise Exception('%s file does not exist.\n' % conf_file)
+        # config.read(conf_file)
+        # _host = config.get('elasticsearch', 'host')
+        # _port = config.getint('elasticsearch', 'port')
+        # _es_id = config.get('elasticsearch', 'id')
+        # _es_passwd = config.get('elasticsearch', 'passwd')
+        # es = Elasticsearch(hosts=_host, port=_port, http_auth=(_es_id, _es_passwd))
 
         index_name = 'documents'
         type_name = 'document'
@@ -189,7 +188,7 @@ class DEFA:
 				
                 print(f"{data.__dict__['name']}")				
 				
-                es.index(index=index_name, doc_type=type_name, body=data.__dict__)
+                # es.index(index=index_name, doc_type=type_name, body=data.__dict__)
                 #print(data.__dict__)
 
                 return True
@@ -231,7 +230,7 @@ class DEFA:
 				
                 print(f"{data.__dict__['name']}")				
 				
-                es.index(index=index_name, doc_type=type_name, body=data.__dict__)
+                # es.index(index=index_name, doc_type=type_name, body=data.__dict__)
                 #print(data.__dict__)
                 return True
             except Exception as ex:
@@ -272,7 +271,7 @@ class DEFA:
 				
                 print(f"{data.__dict__['name']}")				
 				
-                es.index(index=index_name, doc_type=type_name, body=data.__dict__)
+                # es.index(index=index_name, doc_type=type_name, body=data.__dict__)
                 #print(data.__dict__)
                 return True
             except Exception as ex:

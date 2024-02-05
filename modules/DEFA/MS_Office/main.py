@@ -1,5 +1,5 @@
 import unittest
-from carpe_compound import Compound
+from compound import Compound
 import sys, os
 
 

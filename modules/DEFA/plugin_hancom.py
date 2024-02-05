@@ -2,7 +2,7 @@
 import os
 from modules import defa_connector
 from modules.DEFA import interface
-from modules.DEFA.Hancom.carpe_hwp import HWP
+from modules.DEFA.Hancom.hwp import HWP
 from modules.DEFA.MappingDocuments import MappingDocuments
 
 class HWPPlugin(interface.DEFAPlugin):

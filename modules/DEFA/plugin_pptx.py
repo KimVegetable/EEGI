@@ -2,7 +2,7 @@
 
 from modules import defa_connector
 from modules.DEFA import interface
-from modules.DEFA.OOXML.Carpe_OOXML import OOXML
+from modules.DEFA.OOXML.OOXML import OOXML
 from modules.DEFA.MappingDocuments import MappingDocuments
 
 class PPTXPlugin(interface.DEFAPlugin):

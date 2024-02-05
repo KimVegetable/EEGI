@@ -23,25 +23,17 @@ from utility import definitions
 from utility import csv_export
 
 
-class CarpeTool(extraction_tool.ExtractionTool,
+class Tool(extraction_tool.ExtractionTool,
                 case_manager.CaseManager):
-    """Carpe CLI tool.
+    """CLI tool.
 
     Attributes:
-        dependencies_check (bool): 나중에 넣자
+        dependencies_check (bool):
 
     """
-    NAME = 'CARPE Forensics'
-    VERSION = '1.0'
-    DESCRIPTION = textwrap.dedent('\n'.join([
-        '',
-        'CARPE Forensics',
-        'files, recursing a directory (e.g. mount point) or storage media ',
-        'image or device.',
-        '',
-        'More information can be gathered from here:',
-        '    https://carpeforensic.com'
-        '']))
+    NAME = ''
+    VERSION = ''
+    DESCRIPTION = ''
     EPILOG = textwrap.dedent('\n'.join([
         '',
         'Example usage:',
@@ -66,13 +58,13 @@ class CarpeTool(extraction_tool.ExtractionTool,
         '']))
 
     def __init__(self):
-        """Initializes a CarpeTool.
+        """Initializes
 
         Args:
             input:
 
         """
-        super(CarpeTool, self).__init__()
+        super(Tool, self).__init__()
 
         self._cursor = None
         self.dependencies_check = True
@@ -363,7 +355,6 @@ class CarpeTool(extraction_tool.ExtractionTool,
         self.print_now_time(f'Set Modules')
         engine.SetProcessModules(module_filter_expression=configuration.module_filter_expression)
 
-        # carpe.py
         if mode == 'Analyze':
             # parse Artifacts
             engine.Process(configuration)
@@ -395,7 +386,6 @@ class CarpeTool(extraction_tool.ExtractionTool,
                     # print(self._partition_list)
                     engine.process_carve(configuration, is_partition=True)
 
-        # carpe_carve.py
         elif mode == 'Carve':
             # check partition_list
             if not self._partition_list:
@@ -405,7 +395,6 @@ class CarpeTool(extraction_tool.ExtractionTool,
                 print(self._partition_list)
                 engine.process_carve(configuration, is_partition=True)
 
-        # carpe_extract.py
         elif mode == 'Extract':
             for par in disk_info:
                 if par['length'] != 0:
@@ -481,7 +470,7 @@ class CarpeTool(extraction_tool.ExtractionTool,
     def ShowInfo(self):
         """Show information about available modules, options, etc."""
 
-        self._output_writer.Write('{0:=^80s}\n'.format(' CARPE Forensics information '))
+        self._output_writer.Write('{0:=^80s}\n'.format(' information '))
 
         module_list = self._GetModuleData()
         for header, data in module_list.items():
@@ -527,7 +516,7 @@ class CarpeTool(extraction_tool.ExtractionTool,
         return_dict = {}
 
         return_dict['Versions'] = [
-            ('CARPE Forensics', self.VERSION),
+            ('Tool', self.VERSION),
             ('python', sys.version)]
 
         modules_information = modules_manager.ModulesManager.GetModulesInformation()

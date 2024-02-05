@@ -1,24 +1,23 @@
-# carpe_compound.py
 import datetime
 
 from compoundfiles import *
 import os, sys
 import struct
 try:
-    from modules.DEFA.MS_Office.carpe_xls import XLS
+    from modules.DEFA.MS_Office.xls import XLS
 except ModuleNotFoundError:
     sys.path.append(os.path.dirname(__file__))
-    from modules.DEFA.MS_Office.carpe_xls import XLS
+    from modules.DEFA.MS_Office.xls import XLS
 try:
-    from modules.DEFA.MS_Office.carpe_ppt import PPT
+    from modules.DEFA.MS_Office.ppt import PPT
 except ModuleNotFoundError:
     sys.path.append(os.path.dirname(__file__))
-    from modules.DEFA.MS_Office.carpe_ppt import PPT
+    from modules.DEFA.MS_Office.ppt import PPT
 try:
-    from modules.DEFA.MS_Office.carpe_doc import DOC
+    from modules.DEFA.MS_Office.doc import DOC
 except ModuleNotFoundError:
     sys.path.append(os.path.dirname(__file__))
-    from modules.DEFA.MS_Office.carpe_doc import DOC
+    from modules.DEFA.MS_Office.doc import DOC
 
 
 class Compound:

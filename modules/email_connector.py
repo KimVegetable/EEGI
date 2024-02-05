@@ -49,18 +49,18 @@ class EMAILConnector(interface.ModuleConnector):
 
         if configuration.standalone_check:
             insert_email = list()
-        else:
-            config = configparser.ConfigParser()
-            conf_file = os.path.dirname(
-                os.path.dirname(os.path.abspath(__file__))) + os.sep + 'config' + os.sep + 'carpe.conf'
-            if not os.path.exists(conf_file):
-                raise Exception('%s file does not exist.\n' % conf_file)
-            config.read(conf_file)
-            _host = config.get('elasticsearch', 'host')
-            _port = config.getint('elasticsearch', 'port')
-            _index_name = config.get('email', 'index')
-            _type_name = config.get('email', 'type')
-            es = Elasticsearch(hosts=_host, port=_port)
+        # else:
+        #     config = configparser.ConfigParser()
+        #     conf_file = os.path.dirname(
+        #         os.path.dirname(os.path.abspath(__file__))) + os.sep + 'config' + os.sep + 'carpe.conf'
+        #     if not os.path.exists(conf_file):
+        #         raise Exception('%s file does not exist.\n' % conf_file)
+        #     config.read(conf_file)
+        #     _host = config.get('elasticsearch', 'host')
+        #     _port = config.getint('elasticsearch', 'port')
+        #     _index_name = config.get('email', 'index')
+        #     _type_name = config.get('email', 'type')
+        #     es = Elasticsearch(hosts=_host, port=_port)
         path_separator = self.GetPathSeparator(source_path_spec)
         for email in email_files:
             email_path = email[1][email[1].find(path_separator):] + path_separator + email[0]  # document full path
@@ -368,14 +368,15 @@ class EMAILConnector(interface.ModuleConnector):
                         pass
 
             else:
-                try:
-                    if fileExt == "mbox" or fileExt == "pst" or fileExt == "ost":
-                        for r in result:
-                            es.index(index=_index_name, doc_type=_type_name, body=r)
-                    elif fileExt == "msg" or fileExt == "eml":
-                        es.index(index=_index_name, doc_type=_type_name, body=result)
-                except Exception as e:
-                    print("Error : " + str(e))
+                # try:
+                #     if fileExt == "mbox" or fileExt == "pst" or fileExt == "ost":
+                #         for r in result:
+                #             es.index(index=_index_name, doc_type=_type_name, body=r)
+                #     elif fileExt == "msg" or fileExt == "eml":
+                #         es.index(index=_index_name, doc_type=_type_name, body=result)
+                # except Exception as e:
+                #     print("Error : " + str(e))
+                pass
 
         if configuration.standalone_check == True:
             query = "Insert into lv1_app_email values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
