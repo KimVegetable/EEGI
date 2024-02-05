@@ -1,0 +1,44 @@
+Name: WindowsLink
+Desc: Windows Link file
+Table:
+  - TableName: lv1_os_win_link
+    Columns:
+      - par_id
+      - case_id
+      - evd_id
+      - machine_id
+      - file_name
+      - file_path
+      - file_size
+      - lnk_creation_time
+      - lnk_access_time
+      - lnk_write_time
+      - target_creation_time
+      - target_access_time
+      - target_write_time
+      - drive_type
+      - volume_label
+      - drive_serial_number
+      - mac_address
+      - source
+
+
+    Types:
+      - [VARCHAR(100), NOT NULL]
+      - [VARCHAR(100), NOT NULL]
+      - [VARCHAR(100), NOT NULL]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]

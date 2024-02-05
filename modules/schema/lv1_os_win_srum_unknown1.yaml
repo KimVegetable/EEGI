@@ -1,0 +1,37 @@
+Name: WinSrumUnknown1
+Desc: Windows SRUM Unknown1
+Table:
+  - TableName: lv1_os_win_srum_unknown1
+    Columns:
+      - par_id
+      - case_id
+      - evd_id
+      - srum_id_number
+      - srum_entry_creation
+      - application
+      - user_sid
+      - end_time
+      - in_focus_s
+      - user_input_s
+      - audio_in_s
+      - audio_out_s
+      - cycles
+      - keyboard_input_s
+      - mouse_input_s
+
+    Types:
+      - [VARCHAR(255), NOT NULL]
+      - [VARCHAR(255), NOT NULL]
+      - [VARCHAR(255), NOT NULL]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
+      - [TEXT]
