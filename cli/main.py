@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""The carpe extractor command line tool."""
+"""The carpe command line tool."""
 
 from __future__ import print_function
 from __future__ import unicode_literals
@@ -8,6 +8,7 @@ from __future__ import unicode_literals
 import logging
 import os
 import sys
+from pyfiglet import Figlet
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
@@ -17,8 +18,11 @@ from tools import carpe_tool
 from utility import errors
 
 
-def main():
+def Main():
     """The main function."""
+    print()
+    sys.stdout.flush()
+
     tool = carpe_tool.CarpeTool()
 
     if not tool.ParseArguments(sys.argv[1:]):
@@ -36,13 +40,31 @@ def main():
         print('Also see: http://forensic.korea.ac.kr')
         return True
 
+    if tool.show_info:
+        tool.ShowInfo()
+        return True
+
+    have_list_option = False
+
+    if tool.list_modules:
+        tool.ListModules()
+        have_list_option = True
+
+    if tool.list_timezones:
+        tool.ListTimeZones()
+        have_list_option = True
+
+    if have_list_option:
+        return True
+
     # TODO: dependencies_check 되게 해야함!!
     if tool.dependencies_check and not dependencies.CheckDependencies(
             verbose_output=False):
         return False
 
     try:
-        tool.ExtractDataFromSources(mode='Extract')
+        sys.stdout.flush()
+        tool.ExtractDataFromSources(mode='Analyze')
 
     except (KeyboardInterrupt, errors.UserAbort):
         logging.warning('Aborted by user.')
@@ -58,7 +80,8 @@ def main():
 
 
 if __name__ == '__main__':
-    if not main():
+
+    if not Main():
         sys.exit(1)
     else:
         sys.exit(0)
