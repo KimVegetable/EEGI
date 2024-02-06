@@ -39,16 +39,19 @@ Installing the requirements library to run EEGI in PowerShell:
 
 # How to execute?
 
-<pre><code>EEGI.exe [source] [output] --cid [case_name] --eid [evidence_name] --sqlite
+<pre><code>EEGI.exe [source] [output] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
 
-<pre><code>EEGI.exe [source] [output] --modules [module_name,...] --advanced_modules [advanced_module_name,...] --cid [case_name] --eid [evidence_name] --sqlite
+<pre><code>EEGI.exe [source] [output] --modules [module_name,...] --advanced_modules [advanced_module_name,...] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
 
-<pre><code>python main.py [source] [output] --cid [case_name] --eid [evidence_name] --sqlite
+The time zone can be obtained from the 'TZ identifier' in the URL below.
+- https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+<pre><code>python main.py [source] [output] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
 
-<pre><code>python main.py [source] [output] --modules [module_name,...] --advanced_modules [advanced_module_name,...] --cid [case_name] --eid [evidence_name] --sqlite
+<pre><code>python main.py [source] [output] --modules [module_name,...] --advanced_modules [advanced_module_name,...] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
 
 Now, We support these modules.
