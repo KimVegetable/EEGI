@@ -59,3 +59,7 @@ Now, We support these modules.
 
 Now, We support these advanced modules.
 <pre><code>lv2_document_classifier,lv2_os_app_history_analyzer,lv2_os_mft_history_analyzer,lv2_os_log_history_analyzer</code></pre>
+
+## Result
+
+The output of ESIS can be found in the output sqlite file in the 'lv2_document_classifier' table.
