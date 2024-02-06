@@ -7,7 +7,7 @@ We implemented a tool for EEGI using the open-source tool, which is based on Pyt
 ![Structure](Overview.png)
 
 ## Other information
-### Release & Dataset: https://drive.google.com/drive/folders/1rxuTQvbaCk37XUZdccNSljpXmN5yLODA?usp=drive_link
+##### Release & Dataset: https://drive.google.com/drive/folders/1rxuTQvbaCk37XUZdccNSljpXmN5yLODA?usp=drive_link
 
 # How to build?
 
