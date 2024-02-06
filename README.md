@@ -4,10 +4,10 @@
 
 We implemented a tool for EEGI using the open-source tool, which is based on Python. The figure illustrates the overall structure of EEGI, and ESIS, and is available on GitHub. Firstly, this tool takes forensic images as input and analyzes the filesystem to examine the list and metadata of files. This tool is divided into LV1 and LV2 modules. LV1 modules consist of artifact-based analysis code, and LV2 modules utilize the analysis results from LV1 modules to perform deeper analysis. We implemented ESIS as one of the LV2 modules, incorporating preprocessed datasets as well.
 
+![Structure](Overview.png)
 
 ##### Other information
-Release:
-Dataset:
+Release & Dataset:
 
 # How to build?
 
