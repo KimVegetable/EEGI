@@ -1,24 +1,52 @@
-# [CARPE Forensics](http://forensic.korea.ac.kr/dfrc-project-4.html)
+# E-document Evidence Gathering & Investigation(EEGI)
 
 ## INTRODUCTION
 
-Digital Forensic Integration Framework. Because this framework is open source, it can be used to build digital forensic infrastructure through ecosystem building. In addition, verification of the code can evolve to a reliable level of code, and development can be carried out with user requirements.
-For the digital forensic analyst, this technology enables efficient work in the analysis process through automated modules. In the developer's view, it can be used to develop not only digital forensic research but also own tool by utilizing open source.
-Recently, the processing technology for large-capacity data is developed for each module, and not only related data analysis but also keyword search, string extraction, and file fragment recombination are provided.
-
-## OVERVIEW
-
-#### CARPE Forensics Architecture
-![Structure](carpe-forensics.png)
-
-##### Analyze Digital Forensic Image & Extract Artifacts
-In this course, we analyze the image data using plaso and RDS (Reference Data Sets) and perform the process of extracting the desired artifacts by the user. The extracted artifacts are then used as input values of the big data processing.
-
-##### Process Big Data
-In this course, correlation analysis and string indexing are performed based on the result data of image analysis and artifact extraction. The results analyzed in the whole process are stored in a database. The types of databases include a graph database, a time series database, and a relational database. The database data is finally visualized and displayed to the user.
+We implemented a tool for EEGI using the open-source tool, which is based on Python. The figure illustrates the overall structure of EEGI, and ESIS, and is available on GitHub. Firstly, this tool takes forensic images as input and analyzes the filesystem to examine the list and metadata of files. This tool is divided into LV1 and LV2 modules. LV1 modules consist of artifact-based analysis code, and LV2 modules utilize the analysis results from LV1 modules to perform deeper analysis. We implemented ESIS as one of the LV2 modules, incorporating preprocessed datasets as well.
 
 
-##### Ohter information
-* Contact information: http://carpeforensics.org
-* How to build: https://github.com/dfrc-korea/carpe/wiki/Building
-* Documentation: https://github.com/dfrc-korea/carpe/wiki/Usage
+##### Other information
+Release: 
+Dataset: 
+
+# How to build?
+
+## Windows
+
+## Python
+To build EEGI, The Python 3.7.x is required.
+
+The Python 3.7.x must be registered in the system environment variable.
+
+## Visual Studio Community 2019
+Download from: https://visualstudio.microsoft.com/ko/vs/features/cplusplus/
+
+And, install "Desktop development with C++"
+
+## Install EEGI
+
+To run EEGI, We must change PowerShell Execution Policy.
+
+Execute PowerShell as administrator:
+<pre><code>Set-ExecutionPolicy Unrestricted</code></pre>
+
+And enter
+<pre><code>A</code></pre>
+
+Installing the requirements library to run EEGI in PowerShell:
+<pre><code>.\build.ps1</code></pre>
+
+
+# How to execute?
+
+<pre><code>python carpe.py [source] [output] --cid [case_name] --eid [evidence_name] --sqlite
+</code></pre>
+
+<pre><code>python carpe.py [source] [output] --modules [module_name,...] --advanced_modules [advanced_module_name,...] --cid [case_name] --eid [evidence_name] --sqlite
+</code></pre>
+
+Now, We support these modules.
+<pre><code>thumbnailcache_connector,searchdb_connector,shellbag_connector,stickynote_connector,windows_timeline_connector,ntfs_connector,eventlog_connector,chromium_connector,filehistory_connector,jumplist_connector,link_connector,esedb_connector,iconcache_connector,recyclebin_connector,registry_connector,prefetch_connector,defa_connector/xls,defa_connector/doc,defa_connector/ppt,defa_connector/hwp,defa_connector/docx,defa_connector/xlsx,defa_connector/pptx,defa_connector/pdf,email_connector</code></pre>
+
+Now, We support these advanced modules.
+<pre><code>lv2_document_classifier,lv2_os_app_history_analyzer,lv2_os_mft_history_analyzer,lv2_os_log_history_analyzer</code></pre>
