@@ -1,4 +1,5 @@
 SQLAlchemy==1.3.23
+altair==5.0.1
 artifacts==20200515
 atomicwrites==1.4.0
 attrs==20.1.0
@@ -18,6 +19,8 @@ elasticsearch==7.9.1
 hexdump==3.3
 importlib-metadata==1.7.0
 iniconfig==1.0.1
+keras==2.11.0
+Keras-Preprocessing==1.1.2
 libewf-python==20201129
 libesedb-python==20210424
 libfsapfs-python==20200727
@@ -29,6 +32,7 @@ libsmdev-python==20210418
 libsmraw-python==20210418
 libvshadow-python==20210425
 lxml==4.6.2
+matplotlib==3.5.3
 moduleInterface==2.0.13
 more-itertools==8.5.0
 numpy==1.19.1
@@ -40,7 +44,7 @@ pika==1.1.0
 pluggy==0.13.1
 protobuf==3.13.0
 py==1.9.0
-pyarrow==1.0.1
+pyarrow==12.0.0
 pycparser==2.20
 pycryptodome==3.9.8
 PyMySQL==0.10.0
@@ -52,11 +56,15 @@ python-evtx==0.6.1
 pytsk3==20200117
 pytz==2020.4
 PyYAML==5.3.1
+scikeras==0.10.0
+scikit-learn==1.0.2
+seaborn==0.12.2
 sentinel==0.1.2
 six==1.15.0
 sortedcontainers==2.2.2
 striprtf==0.0.11
 structureReader==2.1.11
+tensorflow==2.11.0
 toml==0.10.1
 tqdm==4.46.0
 urllib3==1.25.10

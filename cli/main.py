@@ -23,48 +23,48 @@ def Main():
     print()
     sys.stdout.flush()
 
-    tool = carpe_tool.CarpeTool()
+    main_tool = tool.Tool()
 
-    if not tool.ParseArguments(sys.argv[1:]):
+    if not main_tool.ParseArguments(sys.argv[1:]):
         return False
 
-    if tool.show_troubleshooting:
+    if main_tool.show_troubleshooting:
         print('Using Python version {0!s}'.format(sys.version))
         print()
         print('Path: {0:s}'.format(os.path.abspath(__file__)))
         print()
-        print(tool.GetVersionInformation())
+        print(main_tool.GetVersionInformation())
         print()
         dependencies.CheckDependencies(verbose_output=True)
 
         print('Also see: http://forensic.korea.ac.kr')
         return True
 
-    if tool.show_info:
-        tool.ShowInfo()
+    if main_tool.show_info:
+        main_tool.ShowInfo()
         return True
 
     have_list_option = False
 
-    if tool.list_modules:
-        tool.ListModules()
+    if main_tool.list_modules:
+        main_tool.ListModules()
         have_list_option = True
 
-    if tool.list_timezones:
-        tool.ListTimeZones()
+    if main_tool.list_timezones:
+        main_tool.ListTimeZones()
         have_list_option = True
 
     if have_list_option:
         return True
 
     # TODO: dependencies_check 되게 해야함!!
-    if tool.dependencies_check and not dependencies.CheckDependencies(
+    if main_tool.dependencies_check and not dependencies.CheckDependencies(
             verbose_output=False):
         return False
 
     try:
         sys.stdout.flush()
-        tool.ExtractDataFromSources(mode='Analyze')
+        main_tool.ExtractDataFromSources(mode='Analyze')
 
     except (KeyboardInterrupt, errors.UserAbort):
         logging.warning('Aborted by user.')

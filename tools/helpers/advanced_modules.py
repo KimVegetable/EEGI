@@ -49,7 +49,7 @@ class AdvancedModulesArgumentsHelper(interface.ArgumentsHelper):
     Raises:
       BadConfigObject: when the configuration object is of the wrong type.
     """
-    if not isinstance(configuration_object, carpe_tool.CarpeTool):
+    if not isinstance(configuration_object, tool.Tool):
       raise errors.BadConfigObject(
           'Configuration object is not an instance of CLITool')
 

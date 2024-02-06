@@ -145,6 +145,7 @@ class ProcessEngine(object):
 
     def ProcessAdvancedModules(self, configuration):
         os_usage_history_flag = False
+        document_classifier_flag = False
         for source_path_spec in configuration.source_path_specs:
             if source_path_spec.IsFileSystem() \
                     or source_path_spec.type_indicator == dfvfs_definitions.TYPE_INDICATOR_OS:
@@ -170,7 +171,16 @@ class ProcessEngine(object):
                                     advanced_module.print_run_info(advanced_module.DESCRIPTION, start=False)
                                     print()
                                     continue
-
+                            if advanced_module_name == 'lv2_document_classifier':  # lv2_document_classifier는 한 번만
+                                if not document_classifier_flag:
+                                    advanced_module.print_run_info(advanced_module.DESCRIPTION, start=True)
+                                    advanced_module.Analyze(par_id=par_id,
+                                                            configuration=configuration,
+                                                            source_path_spec=source_path_spec,
+                                                            knowledge_base=self.knowledge_base)
+                                    advanced_module.print_run_info(advanced_module.DESCRIPTION, start=False)
+                                    document_classifier_flag = True
+                                    continue
                             advanced_module.print_run_info(advanced_module.DESCRIPTION, start=True)
                             advanced_module.Analyze(par_id=par_id,
                                                     configuration=configuration,

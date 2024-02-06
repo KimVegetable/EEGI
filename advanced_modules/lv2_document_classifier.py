@@ -85,11 +85,11 @@ class LV2DOCUMENTCLASSIFIERAnalyzer(interface.AdvancedModuleAnalyzer):
         
         # 문서 형태에 따라 리스트로 분류하는 부분
         for index, row in target.iterrows():
-            if 'docx' in row["filename"]:
+            if 'docx' in row["filename"].lower():
                 doc_docx = doc_docx.append(row, ignore_index=True)
-            elif 'xlsx' in row["filename"]:
+            elif 'xlsx' in row["filename"].lower():
                 doc_xlsx = doc_xlsx.append(row, ignore_index=True)
-            elif 'pptx' in row["filename"]:
+            elif 'pptx' in row["filename"].lower():
                 doc_pptx = doc_pptx.append(row, ignore_index=True)
             else:
                 print("Error: no documents -> filename: " + row["filename"])

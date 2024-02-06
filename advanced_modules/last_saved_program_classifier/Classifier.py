@@ -17,20 +17,20 @@ class DocxAnalyzer:
     def train_docx_model(self):
         # Model create
         self.docx_clf = KerasClassifier(model=module.LSTM_Network(vocab_size=self.vocabSize, num_of_class=len(self.uniqueLabel), pad_sequences=self.train_sequences), loss='categorical_crossentropy', validation_split=0.2,  shuffle=True, epochs=10, batch_size=64, verbose=True)
-        for idx in [0, 500, 1000]:
-            print(self.train_data["contents"][idx])
-            print(self.train_sequences[idx])
-            print(self.labels[idx])
-            label = module.decode_onehot(self.labels[idx], self.uniqueLabel)
-            print(label)
+        # for idx in [0, 500, 1000]:
+        #     print(self.train_data["contents"][idx])
+        #     print(self.train_sequences[idx])
+        #     print(self.labels[idx])
+        #     label = module.decode_onehot(self.labels[idx], self.uniqueLabel)
+        #     print(label)
         # split dataset
         x_train, x_test, y_train, y_test = train_test_split(self.train_sequences, self.labels, test_size=0.2, random_state=7)
         # training
         self.docx_clf.fit(x_train, y_train)
         
         # testing = Testing
-        module.showPlot(self.docx_clf.history)
-        self.docx_clf.predict(x_test, y_test)
+        # module.showPlot(self.docx_clf.history)
+        # self.docx_clf.predict(x_test, y_test)
     
     def predict_document(self, data):
         target_seq = module.preProcessor(data)
@@ -56,8 +56,8 @@ class PptxAnalyzer:
         self.pptx_clf.fit(x_train, y_train)
         
         # testing = Testing
-        module.showPlot(self.pptx_clf.history)
-        self.pptx_clf.predict(x_test, y_test)
+        # module.showPlot(self.pptx_clf.history)
+        # self.pptx_clf.predict(x_test, y_test)
     
     def predict_document(self, data):
         target_seq = module.preProcessor(data)
@@ -83,8 +83,8 @@ class XlsxAnalyzer:
         self.xlsx_clf.fit(x_train, y_train)
         
         # testing = Testing
-        module.showPlot(self.xlsx_clf.history)
-        self.xlsx_clf.predict(x_test, y_test)
+        # module.showPlot(self.xlsx_clf.history)
+        # self.xlsx_clf.predict(x_test, y_test)
     
     def predict_document(self, data):
         target_seq = module.preProcessor(data)
