@@ -40,7 +40,7 @@ class DocxAnalyzer:
 
 class PptxAnalyzer:
     def __init__(self):
-        self.uniqueLabel = ['MS', 'MS_Mac', 'Libre', 'Libre_Mac', 'Polaris', 'Hancom2022', 'WPSOffice', 'FreeOffice', 'OnlyOffice' , 'OfficeSuite', 'Google', 'NaverOffice']
+        self.uniqueLabel = ['MS', 'MS_Mac', 'Libre', 'Libre_Mac', 'Polaris', 'WPSOffice', 'FreeOffice', 'OnlyOffice' , 'OfficeSuite', 'Google', 'NaverOffice']
         self.train_data = module.preProcessor(module.getDataset(utils.PPTX_DIR_PATH))
         self.labels = module.onehotencoder_fix(df=self.train_data, uniqueLabel=self.uniqueLabel)
         self.tokenizer = Tokenizer()

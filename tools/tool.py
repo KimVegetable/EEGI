@@ -366,13 +366,13 @@ class Tool(extraction_tool.ExtractionTool,
                 advanced_module_filter_expression=configuration.advanced_module_filter_expression)
             engine.ProcessAdvancedModules(configuration)
 
-            if configuration.source_type == 'directory' or configuration.source_type == 'file':
-                pass
-
-            else:
-                engine.SetProcessAdvancedModules(
-                    advanced_module_filter_expression=configuration.advanced_module_filter_expression)
-                engine.ProcessAdvancedModules(configuration)
+            # if configuration.source_type == 'directory' or configuration.source_type == 'file':
+            #     pass
+            #
+            # else:
+            #     engine.SetProcessAdvancedModules(
+            #         advanced_module_filter_expression=configuration.advanced_module_filter_expression)
+            #     engine.ProcessAdvancedModules(configuration)
 
             if configuration.source_path_specs[0].type_indicator == 'APFS':
                 pass
