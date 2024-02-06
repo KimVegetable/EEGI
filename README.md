@@ -6,8 +6,8 @@ We implemented a tool for EEGI using the open-source tool, which is based on Pyt
 
 
 ##### Other information
-Release: 
-Dataset: 
+Release:
+Dataset:
 
 # How to build?
 
