@@ -39,6 +39,7 @@ Installing the requirements library to run EEGI in PowerShell:
 
 # How to execute?
 
+### Release
 <pre><code>EEGI.exe [source] [output] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
 
@@ -47,6 +48,8 @@ Installing the requirements library to run EEGI in PowerShell:
 
 The time zone can be obtained from the 'TZ identifier' in the URL below.
 - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+### Build
 
 <pre><code>python main.py [source] [output] --cid [case_name] --eid [evidence_name] -z [time_zone] --sqlite
 </code></pre>
